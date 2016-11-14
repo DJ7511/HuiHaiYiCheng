@@ -1,0 +1,46 @@
+#s1{
+  width:950px;
+  margin:15px auto;
+  padding:10px;
+  border:2px solid black;
+  font-weight:bold;
+}
+#s2{
+  border:0px solid black;
+  width:950px;
+  margin:0px auto;
+}
+
+#s3{
+  border:0px;
+  width:950px;
+
+}
+#s4{
+  border:1px solid black;
+  width:472px;
+  font-weight:bold;
+  float:left;
+  font-size:24px;
+}
+#s5{
+  border:0px solid black;
+  margin:0px auto;
+}
+
+
+.s2{
+  width:950px;
+  margin:0px auto;
+  background-image:url(../../Images/unit3/s45.jpg);
+  font:normal normal bolder 20px "微软雅黑";
+  color:white;
+  text-shadow:1px 1px 3px rgba(0,0,0,1);
+}
+.s1{
+  width:400px;
+  margin:15px auto;
+  padding:10px;
+  border:2px solid white;
+  float:left;
+}

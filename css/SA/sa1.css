@@ -1,0 +1,58 @@
+﻿table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+fieldset, img { border: 0; }
+address, caption, cite, code, dfn, em, strong, th, var {
+  font-style: normal;
+  font-weight: normal;
+}
+ol, ul { list-style: none; }
+caption, th { text-align: left; }
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.clearfix { zoom: 1; }
+
+.poster-main {
+  width: 930px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.poster-main a, .poster-main img { display: block; }
+
+.poster-main .poster-list {
+  width: 930px;
+  height: 500px;
+}
+
+.poster-main .poster-list .poster-item {
+  width: 200px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.poster-main .poster-btn {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.poster-main .poster-prev-btn {
+  left: 0;
+  background: url(../../images/unit3/left.png) no-repeat center center;
+}
+
+.poster-main .poster-next-btn {
+  right: 0;
+  background: url(../../images/unit3/right.png) no-repeat center center;
+}

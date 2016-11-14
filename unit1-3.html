@@ -1,0 +1,438 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<link rel="Shortcut Icon" href="images/DJicon1.png" />
+<title>绘海以诚|新海诚作品集</title>
+<mete charser="utf-8" />
+<mete name="keyname" content="新海诚,《秒速五厘米》,《云之彼岸》,《言叶之庭》,《追逐繁星的孩子》,《星之声》" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/DJ/tplayer.css" rel="stylesheet" type="text/css" />
+<link href="css/DJ/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<script src="js/DJ/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="js/DJ/jquery.hover3d.js" type="text/javascript"></script>
+<script src="js/DJ/jquery.tagcanvas.js" type="text/javascript"></script>
+<script src="js/DJ/leftmain.js" type="text/javascript"></script>
+<script src="Js/DJ/jquery-ui.js" type="text/javascript"></script>
+<script src="Js/DJ/tPlayer.js" type="text/javascript"></script>
+<style>
+#layout{
+  width:950px;
+  box-sizing:content-box;
+  margin:0px auto;
+}
+#foot{
+  width:950px;
+  box-sizing:content-box;
+  margin:0px auto;
+  float:none;
+}
+.container{
+  margin: 0px auto;
+  width:950px;
+  background:#43c0df;
+  position:relative;
+}
+.containerout {
+  width:100%;
+  height:40px;
+  mragin:0 px auto;
+  z-index:9999;
+  position:fixed;
+  top:0px;
+  background:#43c0df;
+  box-shadow:1px 1px 7px #999;
+}
+.menu, .menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.menu {
+  margin:0px auto;
+  height:40px;
+}
+.menu li {
+  background: -moz-linear-gradient(#006D96, #006D96);
+  background: -ms-linear-gradient(#006D96, #006D96);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #006D96), color-stop(100%, #006D96));
+  background: -webkit-linear-gradient(#006D96, #006D96);
+  background: -o-linear-gradient(#006D96, #006D96);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006D96', endColorstr='#006D96');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#006D96', endColorstr='##006D96')";
+  background: #43c0df;
+  min-width: 135px;
+}
+.menu li:hover ul a{
+  border-top: 2px solid #006D96;
+}
+.menu > li {
+  display: block;
+  float: left;
+  position: relative;	
+}
+.menu > li:first-child {
+  border-radius: 0px 0 0;
+}
+.menu a {
+  border-left: 1px solid rgba(0, 0, 0, 0);
+  color: #333333;
+  display: block;
+  font-family: '微软雅黑';
+  font-size: 19px;
+  text-align:center;
+  line-height: 40px;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 7px #999;
+  font-weight:bolder;
+  letter-spacing:4px; 
+}
+.menu li:hover {
+  background-color: #43c0df;
+  background: -moz-linear-gradient(#43c0df, #a8eeff);
+  background: -ms-linear-gradient(#43c0df,#a8eeff);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #006D96), color-stop(100%, #006D96));
+  background: -webkit-linear-gradient(#43c0df, #a8eeff);
+  background: -o-linear-gradient(#43c0df,#a8eeff);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006D96', endColorstr='#006D96');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#006D96', endColorstr='#1b1b1b')";
+  background: linear-gradient(#43c0df,#a8eeff);
+}
+.menu li:hover > a {
+  border-radius: 5px 0 0 0;
+  border-left: 3px solid #006D96;
+  font-size:19px;
+  font-family:'微软雅黑';
+  text-align:center;
+  vertical-align:middle;
+  letter-spacing:0px; 	
+  text-decoration:none;
+  text-shadow: 1px 1px 7px #999;
+  display:block;
+  color: white;
+  letter-spacing:10px; 
+}
+.submenu {
+  left: 0;
+  max-height: 0;
+  position: absolute;
+  top: 100%;
+  z-index: 0;
+  -webkit-perspective: 400px;
+  -moz-perspective: 400px;
+  -ms-perspective: 400px;
+  -o-perspective: 400px;
+  perspective: 400px;
+}
+.submenu li {
+  opacity: 0;
+  -webkit-transform: rotateY(90deg);
+  -moz-transform: rotateY(90deg);
+  -ms-transform: rotateY(90deg);
+  -o-transform: rotateY(90deg);
+  transform: rotateY(90deg);
+  -webkit-transition: opacity .4s, -webkit-transform .5s;
+  -moz-transition: opacity .4s, -moz-transform .5s;
+  -ms-transition: opacity .4s, -ms-transform .5s;
+  -o-transition: opacity .4s, -o-transform .5s;
+  transition: opacity .4s, transform .5s;
+}
+.menu .submenu li a {
+  font-size:12px;
+  letter-spacing:0px; 
+}
+.menu .submenu li:hover a {
+  border-left: 2px solid #006D96;
+  border-radius: 0;
+  color: #ffffff;
+  font-size:12px;
+  letter-spacing:0px; 
+}
+.menu > li:hover .submenu, .menu > li:focus .submenu {
+  max-height: 2000px;
+  z-index: 10;
+}
+.menu > li:hover .submenu li, .menu > li:focus .submenu li {
+  opacity: 1;
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transform: none;
+}
+.menu li:hover .submenu li:nth-child(1) {
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+}
+.menu li:hover .submenu li:nth-child(2) {
+  -webkit-transition-delay: 50ms;
+  -moz-transition-delay: 50ms;
+  -ms-transition-delay: 50ms;
+  -o-transition-delay: 50ms;
+  transition-delay: 50ms;
+}
+.menu li:hover .submenu li:nth-child(3) {
+  -webkit-transition-delay: 100ms;
+  -moz-transition-delay: 100ms;
+  -ms-transition-delay: 100ms;
+  -o-transition-delay: 100ms;
+  transition-delay: 100ms;
+}
+.menu li:hover .submenu li:nth-child(4) {
+  -webkit-transition-delay: 150ms;
+  -moz-transition-delay: 150ms;
+  -ms-transition-delay: 150ms;
+  -o-transition-delay: 150ms;
+  transition-delay: 150ms;
+}
+.menu li:hover .submenu li:nth-child(5) {
+  -webkit-transition-delay: 200ms;
+  -moz-transition-delay: 200ms;
+  -ms-transition-delay: 200ms;
+  -o-transition-delay: 200ms;
+  transition-delay: 200ms;
+}
+.menu li:hover .submenu li:nth-child(6) {
+  -webkit-transition-delay: 250ms;
+  -moz-transition-delay: 250ms;
+  -ms-transition-delay: 250ms;
+  -o-transition-delay: 250ms;
+  transition-delay: 250ms;
+}
+.menu li:hover .submenu li:nth-child(7) {
+  -webkit-transition-delay: 300ms;
+  -moz-transition-delay: 300ms;
+  -ms-transition-delay: 300ms;
+  -o-transition-delay: 300ms;
+  transition-delay: 300ms;
+}
+.menu li:hover .submenu li:nth-child(8) {
+  -webkit-transition-delay: 350ms;
+  -moz-transition-delay: 350ms;
+  -ms-transition-delay: 350ms;
+  -o-transition-delay: 350ms;
+  transition-delay: 350ms;
+}
+
+.submenu li:nth-child(1) {
+  -webkit-transition-delay: 350ms;
+  -moz-transition-delay: 350ms;
+  -ms-transition-delay: 350ms;
+  -o-transition-delay: 350ms;
+  transition-delay: 350ms;
+}
+.submenu li:nth-child(2) {
+  -webkit-transition-delay: 300ms;
+  -moz-transition-delay: 300ms;
+  -ms-transition-delay: 300ms;
+  -o-transition-delay: 300ms;
+  transition-delay: 300ms;
+}
+.submenu li:nth-child(3) {
+  -webkit-transition-delay: 250ms;
+  -moz-transition-delay: 250ms;
+  -ms-transition-delay: 250ms;
+  -o-transition-delay: 250ms;
+  transition-delay: 250ms;
+}
+.submenu li:nth-child(4) {
+  -webkit-transition-delay: 200ms;
+  -moz-transition-delay: 200ms;
+  -ms-transition-delay: 200ms;
+  -o-transition-delay: 200ms;
+  transition-delay: 200ms;
+}
+.submenu li:nth-child(5) {
+  -webkit-transition-delay: 150ms;
+  -moz-transition-delay: 150ms;
+  -ms-transition-delay: 150ms;
+  -o-transition-delay: 150ms;
+  transition-delay: 150ms;
+}
+.submenu li:nth-child(6) {
+  -webkit-transition-delay: 100ms;
+  -moz-transition-delay: 100ms;
+  -ms-transition-delay: 100ms;
+  -o-transition-delay: 100ms;
+  transition-delay: 100ms;
+}
+.submenu li:nth-child(7) {
+  -webkit-transition-delay: 50ms;
+  -moz-transition-delay: 50ms;
+  -ms-transition-delay: 50ms;
+  -o-transition-delay: 50ms;
+  transition-delay: 50ms;
+}
+.submenu li:nth-child(8) {
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+}
+</style>
+</head>
+<body topmargin=0 background="images/DJbackground01.jpg" style="background-repeat:x-repeat">
+<div class="containerout">
+  <div class="container">
+    <ul class="menu">
+       <li><a href="index.html">主页</a></li>
+       <li><a href="zuopinyulan.html">作品预览</a>
+	  <ul class="submenu">
+	    <li><a href="unit1-1.html">《秒速五厘米》预览</a></li>
+	    <li><a href="unit2-1.html">《云之彼岸》预览</a></li>
+	    <li><a href="unit3-1.html">《言叶之庭》预览</a></li>
+            <li><a href="unit4-1.html">《追逐繁星的孩子》预览</a></li>
+	    <li><a href="unit5-1.html">《星之声》预览</a></li>
+	  </ul>
+	</li>
+	<li ><a href="zuopintupian.html">作品图片</a>
+	   <ul class="submenu">
+	     <li><a href="unit1-2.html">《秒速五厘米》图片</a></li>
+	     <li><a href="unit2-2.html">《云之彼岸》图片</a></li>
+	     <li><a href="unit3-2.html">《言叶之庭》图片</a></li>
+	     <li><a href="unit4-2.html">《追逐繁星的孩子》图片</a></li>
+	     <li><a href="unit5-2.html">《星之声》图片</a></li>	
+	    </ul>
+	</li>
+	<li><a href="zuopinyinyue.html">作品音乐</a>
+	    <ul class="submenu">
+	      <li><a href="unit1-3.html">《秒速五厘米》音乐</a></li>
+	      <li><a href="unit2-3.html">《云之彼岸》音乐</a></li>
+	      <li><a href="unit3-3.html">《言叶之庭》音乐</a></li>
+	      <li><a href="unit4-3.html">《追逐繁星的孩子》音乐</a></li>
+	      <li><a href="unit5-3.html">《星之声》音乐</a></li>
+	     </ul>
+	</li>
+	<li><a href="jingdiantaici.html">经典台词</a>
+	     <ul class="submenu">
+		<li><a href="unit1-4.html">《秒速五厘米》台词</a></li>
+		<li><a href="unit2-4.html">《云之彼岸》台词</a></li>
+		<li><a href="unit3-4.html">《言叶之庭》台词</a></li>
+		<li><a href="unit4-4.html">《追逐繁星的孩子》台词</a></li>
+		<li><a href="unit5-4.html">《星之声》台词</a></li>
+	      </ul>
+	</li>
+	<li><a href="zaixianshipin.html">在线视频</a></li>
+	<li><a href="qita.html">其他</a></li>
+    </ul>
+  </div>
+</div>
+<div id="foot">
+  <div class="movie">
+    <div class="movie__card">
+      <div class="layer-3"><img src="images/DJbanner.gif"></div>
+    </div>
+  </div>
+</div>
+<div id="foot">
+  <img src="images/DJfoot001.jpg" align="center">
+</div>
+<div id="t_wrapper"> 
+  <div id="t_cover">
+    <img src="images/musiclogo.png">
+  </div>
+  <div id="t_top">
+    <div id="t_title_info">
+      <span class="artist"></span>
+      <span class="title"></span>
+    </div>
+  </div>
+  <div id="t_middle">
+    <div id="play"></div>
+    <div id="pause" class="hidden"></div>
+    <div class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="t_progress">
+      <div id="trackInfo">
+        <div id="error"></div>
+        <div id="current">0:00</div>
+        <div id="duration">0:00</div>
+      </div>
+      <div style="width: 0%;" class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min"></div>
+      <span style="left: 0%;" class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
+    </div>
+    <span id="prev"></span>
+    <span id="next"></span>
+  </div>
+  <div id="t_bottom">
+    <div id="range">
+      <div id="val"></div>
+      <div id="vol"></div>
+      <div id="rangeVal"></div>
+    </div>
+    <div id="t_pls_show" class="noselectpls"></div>
+  </div>
+</div>
+<div id="playlist">
+  <ul>
+    <li t_cover="music02.jpg" t_artist="山崎将义" t_name="One More Time, One More Chance">
+      <a href="#">山崎将义 - One More Time, One More Chance</a>
+      <audio preload="none">
+        <source src="music/unit1/山崎将义 - One More Time, One More Chance.mp3" type="audio/mp3">
+      </audio>
+    </li>
+    <li t_cover="music03.png" t_artist="天門" t_name="桜花抄">
+      <a href="#">天門 - 桜花抄</a>
+      <audio preload="none">
+        <source src="music/unit1/天門 - 桜花抄 - 纯音乐版.mp3" type="audio/mp3">
+      </audio>
+     </li>
+     <li t_cover="music03.png" t_artist="天門" t_name="想い出は遠くの日々">
+       <a href="#">天門 - 想い出は遠くの日々</a>
+       <audio preload="none">
+         <source src="music/unit1/天門 - 想い出は遠くの日々 - 纯音乐版.mp3" type="audio/mp3">
+       </audio>
+     </li>
+  </ul>
+</div>
+<div align="center" id="foot">
+  <img src="images/DJfoot001.jpg" />
+  <br/>
+  <a href="guanyuwomen.html" target="_blank">关于我们</a>|	
+  <a href="mianzeshengming.html" target="_blank">免责声明</a>|
+  <a href="lianxiwomen.html" target="_blank">联系我们</a>|
+  <a href="wangluoditu.html" target="_blank">网络地图</a>|
+  <a href="youqinglianjie.html" target="_blank">友情链接</a>	
+  <br />		
+  <small>Copyright &copy2016;绘海以诚网站制作组</small>
+</div>
+<div class="menu1">
+  <div><a href="#top"><img src="images/DJ/DJficon10.jpg"></a></div>
+  <div><a href="index.html" target="_blank"><img src="images/DJ/DJficon20.jpg"></a></div>
+  <div><a href="http://www.dxs001.com/" target="_blank" class="top3"><img src="images/DJ/DJficon30.jpg"></a></div>
+</div>
+<div id="floatTools" class="rides-cs" style="height:180px;">
+  <div class="floatL">
+    <a style="display:block" id="aFloatTools_Show" class="btnOpen" style="top:20px" href="javascript:void(0);">展开</a>
+    <a style="display:none" id="aFloatTools_Hide" class="btnCtn" style="top:20px" href="javascript:void(0);">收缩</a>
+  </div>
+  <div id="divFloatToolsView" class="floatR" style="display: none;height:230px;width:165px;">
+    <div id="containerle">
+       <canvas width:195px; height:240px; id="myCanvasle">
+         <ul>
+           <li><a href="index.html" target="_blank">首页</a></li>
+           <li><a href="zaixianshipin.html" target="_blank">在线视频</a></li>
+           <li><a href="http://www.dxs001.com/" target="_blank">大学生第一导航</a></li>
+           <li><a href="youqinglianjie.html" target="_blank">友情链接</a></li>
+           <li><a href="unit4-1.html" target="_blank">《繁星》</a></li>
+           <li><a href="unit1-1.html" target="_blank">《秒五》</a></li>
+           <li><a href="unit3-1.html" target="_blank">《言叶》</a></li>
+           <li><a href="qita.html" target="_blank">坦克大战</a></li>
+           <li><a href="unit2-1.html" target="_blank">《云彼》</a></li>
+           <li><a href="zuopintupian.html" target="_blank">美图</a></li>
+           <li><a href="jingdiantaici.html" target="_blank">美句</a></li>
+           <li><a href="unit5-1.html" target="_blank">《星之声》</a></li>
+           <li><a href="guanyuwomen.html" target="_blank">WE</a></li>
+        </ul>
+      </canvas>
+    </div>
+  </div>
+</div> 
+<span id="djclock">
+  <embed src="video/clock.swf"  width="170px" height="90px"></embed>
+  <script type="text/javascript" src="js/DJ/clock.js"></script>    
+</span>  
+</body>
+</html>

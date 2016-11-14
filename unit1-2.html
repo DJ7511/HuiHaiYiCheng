@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Shortcut Icon" href="images/DJicon1.png" />
+<title>绘海以诚|新海诚作品集</title>
+<mete charser="utf-8" />
+<mete name="keyname" content="新海诚,《秒速五厘米》,《云之彼岸》,《言叶之庭》,《追逐繁星的孩子》,《星之声》" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script src="js/DJ/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="js/DJ/jquery.hover3d.js" type="text/javascript"></script>
+<script src="js/DJ/jquery.tagcanvas.js" type="text/javascript"></script>
+<script src="js/DJ/leftmain.js" type="text/javascript"></script>
+<style>
+#layout{
+  width:950px;
+  box-sizing:content-box;
+  margin:0px auto;
+}
+#foot{
+  width:950px;
+  box-sizing:content-box;
+  margin:0px auto;
+  float:none;
+}
+h1{
+  font:normal normal normal 40px "华文行楷", Arial, Helvetica, sans-serif;
+  text-align:center;
+}
+</style> 			
+</head>
+<body topmargin=0 background="images/DJbackground01.jpg" style="background-repeat:x-repeat background-attachment:fixed">
+<div class="containerout">
+  <div class="container">
+    <ul class="menu">
+       <li><a href="index.html">主页</a></li>
+       <li><a href="zuopinyulan.html">作品预览</a>
+	  <ul class="submenu">
+	    <li><a href="unit1-1.html">《秒速五厘米》预览</a></li>
+	    <li><a href="unit2-1.html">《云之彼岸》预览</a></li>
+	    <li><a href="unit3-1.html">《言叶之庭》预览</a></li>
+            <li><a href="unit4-1.html">《追逐繁星的孩子》预览</a></li>
+	    <li><a href="unit5-1.html">《星之声》预览</a></li>
+	  </ul>
+	</li>
+	<li ><a href="zuopintupian.html">作品图片</a>
+	   <ul class="submenu">
+	     <li><a href="unit1-2.html">《秒速五厘米》图片</a></li>
+	     <li><a href="unit2-2.html">《云之彼岸》图片</a></li>
+	     <li><a href="unit3-2.html">《言叶之庭》图片</a></li>
+	     <li><a href="unit4-2.html">《追逐繁星的孩子》图片</a></li>
+	     <li><a href="unit5-2.html">《星之声》图片</a></li>	
+	    </ul>
+	</li>
+	<li><a href="zuopinyinyue.html">作品音乐</a>
+	    <ul class="submenu">
+	      <li><a href="unit1-3.html">《秒速五厘米》音乐</a></li>
+	      <li><a href="unit2-3.html">《云之彼岸》音乐</a></li>
+	      <li><a href="unit3-3.html">《言叶之庭》音乐</a></li>
+	      <li><a href="unit4-3.html">《追逐繁星的孩子》音乐</a></li>
+	      <li><a href="unit5-3.html">《星之声》音乐</a></li>
+	     </ul>
+	</li>
+	<li><a href="jingdiantaici.html">经典台词</a>
+	     <ul class="submenu">
+		<li><a href="unit1-4.html">《秒速五厘米》台词</a></li>
+		<li><a href="unit2-4.html">《云之彼岸》台词</a></li>
+		<li><a href="unit3-4.html">《言叶之庭》台词</a></li>
+		<li><a href="unit4-4.html">《追逐繁星的孩子》台词</a></li>
+		<li><a href="unit5-4.html">《星之声》台词</a></li>
+	      </ul>
+	</li>
+	<li><a href="zaixianshipin.html">在线视频</a></li>
+	<li><a href="qita.html">其他</a></li>
+    </ul>
+  </div>
+</div>
+<div id="foot">
+  <div class="movie">
+    <div class="movie__card">
+      <div class="layer-3"><img src="images/DJbanner.gif"></div>
+    </div>
+  </div>
+</div>
+<div id="foot">
+  <img src="images/DJfoot001.jpg" align="center">
+</div> 
+<div align="center" id="foot">
+  <h1>《秒速五厘米》|精美图片</h1>
+</div>
+<br />
+<div id="containeru1" > </div>
+<script src='js/DJ/djpicturedelaunay.js'></script> 
+<script src='js/DJ/djpictureTweenMax.js'></script> 
+<script>
+const TWO_PI = Math.PI * 2;
+
+var images = [], 
+    imageIndex = 0;
+
+var image,
+    imageWidth = 950,
+    imageHeight = 485;
+ 
+var vertices = [],
+    indices = [],
+    prevfrag = [],
+    fragments = [];
+
+var margin = 50;
+
+var container = document.getElementById('containeru1');
+
+var clickPosition = [imageWidth * 0.5, imageHeight * 0.5];
+
+window.onload = function() {
+    TweenMax.set(container, {perspective:500});
+
+    // images from http://www.hdwallpapers.in
+    var urls = [
+            'images/unit1/u1 (1).jpg',
+            'images/unit1/u1 (2).jpg',
+            'images/unit1/u1 (3).jpg',
+            'images/unit1/u1 (4).jpg',
+	    'images/unit1/u1 (5).jpg',
+	    'images/unit1/u1 (6).jpg',
+	    'images/unit1/u1 (7).jpg',
+	    'images/unit1/u1 (8).jpg',
+	    'images/unit1/u1 (9).jpg',
+	    'images/unit1/u1 (10).jpg',
+            'images/unit1/u1 (11).jpg',
+            'images/unit1/u1 (12).jpg',
+            'images/unit1/u1 (13).jpg',
+	    'images/unit1/u1 (14).jpg',
+	    'images/unit1/u1 (15).jpg',
+	    'images/unit1/u1 (16).jpg',
+	    'images/unit1/u1 (17).jpg',
+	    'images/unit1/u1 (18).jpg',
+	    'images/unit1/u1 (19).jpg',
+        ],
+        image,
+        loaded = 0;
+    // very quick and dirty hack to load and display the first image asap
+    images[0] = image = new Image();
+        image.onload = function() {
+            if (++loaded === 1) {
+                
+                for (var i = 1; i < 4; i++) {
+                    images[i] = image = new Image();
+
+                    image.src = urls[i];
+                } 
+                placeImage();
+            }
+        };
+        image.src = urls[0]; 
+};
+
+function placeImage(transitionIn) {
+    image = images[imageIndex];
+
+    if (++imageIndex === images.length) imageIndex = 0;
+  
+    var num = Math.random();
+    if(num < .25) {
+      image.direction = "left";
+    } else if(num < .5) {
+      image.direction = "top";
+    } else if(num < .75) {
+      image.direction = "bottom";
+    } else {
+      image.direction = "right";
+    }
+
+    container.appendChild(image);
+    image.style.opacity = 0;
+  
+    if (transitionIn !== false) {
+        triangulateIn();
+    }
+}
+
+function triangulateIn(event) {
+    var box = image.getBoundingClientRect(),
+        top = box.top,
+        left = box.left;
+  
+    if(image.direction == "left") {
+      clickPosition[0] = 0; 
+      clickPosition[1] = imageHeight / 2;
+    } else if(image.direction == "top") {
+      clickPosition[0] = imageWidth / 2;
+      clickPosition[1] = 0;
+    } else if(image.direction == "bottom") {
+      clickPosition[0] = imageWidth / 2;
+      clickPosition[1] = imageHeight;
+    } else if(image.direction == "right") {
+      clickPosition[0] = imageWidth;
+      clickPosition[1] = imageHeight / 2;
+    } 
+    
+
+    triangulate();
+    build();
+}
+
+function triangulate() {
+    for(var i = 0; i < 40; i++) {      
+      x = -margin + Math.random() * (imageWidth + margin * 2);
+      y = -margin + Math.random() * (imageHeight + margin * 2);
+      vertices.push([x, y]);
+    }
+    vertices.push([0,0]);
+    vertices.push([imageWidth,0]);
+    vertices.push([imageWidth, imageHeight]);
+    vertices.push([0, imageHeight]);
+  
+    vertices.forEach(function(v) {
+        v[0] = clamp(v[0], 0, imageWidth);
+        v[1] = clamp(v[1], 0, imageHeight);
+    });
+  
+    indices = Delaunay.triangulate(vertices);
+}
+
+function build() {
+    var p0, p1, p2,
+        fragment;
+
+    var tl0 = new TimelineMax({onComplete:buildCompleteHandler});
+
+    for (var i = 0; i < indices.length; i += 3) {
+        p0 = vertices[indices[i + 0]];
+        p1 = vertices[indices[i + 1]];
+        p2 = vertices[indices[i + 2]];
+
+        fragment = new Fragment(p0, p1, p2);
+
+        var dx = fragment.centroid[0] - clickPosition[0],
+            dy = fragment.centroid[1] - clickPosition[1],
+            d = Math.sqrt(dx * dx + dy * dy),
+            rx = 30 * sign(dy),
+            ry = 90 * -sign(dx),
+            delay = d * 0.003 * randomRange(0.9, 1.1);
+        fragment.canvas.style.zIndex = Math.floor(d).toString();
+
+        var tl1 = new TimelineMax(); 
+
+        if(image.direction == "left") {
+          rx = Math.abs(rx); 
+          ry = 0;          
+        } else if(image.direction == "top") {
+          rx = 0;
+          ry = Math.abs(ry);
+        } else if(image.direction == "bottom") {
+          rx = 0;
+          ry = - Math.abs(ry);
+        } else if(image.direction == "right") {
+          rx = - Math.abs(rx);
+          ry = 0;
+        } 
+        
+        tl1.from(fragment.canvas, 1, {
+              z:-50,
+              rotationX:rx,
+              rotationY:ry,
+              scaleX:0,
+              scaleY:0,
+              ease:Cubic.easeIn
+         });
+        tl1.from(fragment.canvas, 0.4,{alpha:0}, 0.6);
+      
+        tl0.insert(tl1, delay);
+
+        fragments.push(fragment);
+        container.appendChild(fragment.canvas);
+    }
+}
+
+function buildCompleteHandler() {
+    // add pooling?
+    image.style.opacity = 1;
+    image.addEventListener('transitionend', function catchTrans() {
+      fragments.forEach(function(f) {
+          container.removeChild(f.canvas);
+      });
+
+      fragments.length = 0;
+      vertices.length = 0;
+      indices.length = 0;
+
+      placeImage();
+      this.removeEventListener('transitionend',catchTrans,false);
+    }, false);
+    
+}
+
+//////////////
+// MATH UTILS
+//////////////
+
+function randomRange(min, max) {
+    return min + (max - min) * Math.random();
+}
+
+function clamp(x, min, max) {
+    return x < min ? min : (x > max ? max : x);
+}
+
+function sign(x) {
+    return x < 0 ? -1 : 1;
+}
+
+//////////////
+// FRAGMENT
+//////////////
+
+Fragment = function(v0, v1, v2) {
+    this.v0 = v0;
+    this.v1 = v1;
+    this.v2 = v2;
+
+    this.computeBoundingBox();
+    this.computeCentroid();
+    this.createCanvas();
+    this.clip();
+};
+Fragment.prototype = {
+    computeBoundingBox:function() {
+        var xMin = Math.min(this.v0[0], this.v1[0], this.v2[0]),
+            xMax = Math.max(this.v0[0], this.v1[0], this.v2[0]),
+            yMin = Math.min(this.v0[1], this.v1[1], this.v2[1]),
+            yMax = Math.max(this.v0[1], this.v1[1], this.v2[1]);
+
+         this.box = {
+            x:Math.round(xMin),
+            y:Math.round(yMin),
+            w:Math.round(xMax - xMin),
+            h:Math.round(yMax - yMin)
+        };
+
+    },
+    computeCentroid:function() {
+        var x = (this.v0[0] + this.v1[0] + this.v2[0]) / 3,
+            y = (this.v0[1] + this.v1[1] + this.v2[1]) / 3;
+
+        this.centroid = [x, y];
+    },
+    createCanvas:function() {
+        this.canvas = document.createElement('canvas');
+        this.canvas.width = this.box.w;
+        this.canvas.height = this.box.h;
+        this.canvas.style.width = this.box.w + 'px';
+        this.canvas.style.height = this.box.h + 'px';
+        this.canvas.style.left = this.box.x + 'px';
+        this.canvas.style.top = this.box.y + 'px';
+        this.ctx = this.canvas.getContext('2d');
+    },
+    clip:function() {
+        this.ctx.save();
+        this.ctx.translate(-this.box.x, -this.box.y);
+        this.ctx.beginPath();
+        this.ctx.moveTo(this.v0[0], this.v0[1]);
+        this.ctx.lineTo(this.v1[0], this.v1[1]);
+        this.ctx.lineTo(this.v2[0], this.v2[1]);
+        this.ctx.closePath();
+        this.ctx.clip();
+        this.ctx.drawImage(image, 0, 0);
+        this.ctx.restore();
+    }
+};//@ sourceURL=pen.js
+</script>
+
+<br />
+<div align="center" id="foot">
+  <img src="images/DJfoot001.jpg" />
+  <br/>
+  <a href="guanyuwomen.html" target="_blank">关于我们</a>|	
+  <a href="mianzeshengming.html" target="_blank">免责声明</a>|
+  <a href="lianxiwomen.html" target="_blank">联系我们</a>|
+  <a href="wangluoditu.html" target="_blank">网络地图</a>|
+  <a href="youqinglianjie.html" target="_blank">友情链接</a>	
+  <br />		
+  <small>Copyright &copy2016;绘海以诚网站制作组</small>
+</div>
+<div class="menu1">
+  <div><a href="#top"><img src="images/DJ/DJficon10.jpg"></a></div>
+  <div><a href="index.html" target="_blank"><img src="images/DJ/DJficon20.jpg"></a></div>
+  <div><a href="http://www.dxs001.com/" target="_blank" class="top3"><img src="images/DJ/DJficon30.jpg"></a></div>
+</div>
+<div id="floatTools" class="rides-cs" style="height:180px;">
+  <div class="floatL">
+    <a style="display:block" id="aFloatTools_Show" class="btnOpen" style="top:20px" href="javascript:void(0);">展开</a>
+    <a style="display:none" id="aFloatTools_Hide" class="btnCtn" style="top:20px" href="javascript:void(0);">收缩</a>
+  </div>
+  <div id="divFloatToolsView" class="floatR" style="display: none;height:230px;width:165px;">
+    <div id="containerle">
+      <canvas width:195px; height:240px; id="myCanvasle">
+        <ul>
+          <li><a href="index.html" target="_blank">首页</a></li>
+          <li><a href="zaixianshipin.html" target="_blank">在线视频</a></li>
+          <li><a href="http://www.dxs001.com/" target="_blank">大学生第一导航</a></li>
+          <li><a href="youqinglianjie.html" target="_blank">友情链接</a></li>
+          <li><a href="unit4-1.html" target="_blank">《繁星》</a></li>
+          <li><a href="unit1-1.html" target="_blank">《秒五》</a></li>
+          <li><a href="unit3-1.html" target="_blank">《言叶》</a></li>
+          <li><a href="qita.html" target="_blank">坦克大战</a></li>
+          <li><a href="unit2-1.html" target="_blank">《云彼》</a></li>
+          <li><a href="zuopintupian.html" target="_blank">美图</a></li>
+          <li><a href="jingdiantaici.html" target="_blank">美句</a></li>
+          <li><a href="unit5-1.html" target="_blank">《星之声》</a></li>
+          <li><a href="guanyuwomen.html" target="_blank">WE</a></li>
+        </ul>
+      </canvas>
+    </div>
+  </div>
+</div>
+<span id="djclock">
+  <embed src="video/clock.swf"  width="170px" height="90px"></embed>
+  <script type="text/javascript" src="js/DJ/clock.js"></script>    
+</span>  
+</body>
+</html>
